@@ -1,0 +1,269 @@
+html {
+  box-sizing: border-box;
+}
+
+body,
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --background-color: #e5e5e5;
+  --blue-color: #0a3871;
+  --font-family: Inter, sans-serif;
+  --estadoNone: flex;
+  --estadoTexto: none;
+  --fontInputText: 2rem;
+  --fontOutputText: 1.5rem;
+}
+body {
+  background-color: var(--background-color);
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    margin: 1rem auto;
+    padding: 0 1rem;
+    width: 100%;
+    font-family: var(--font-family);
+  }
+
+  /* FIRST SECTION  */
+
+  /* Text in the container */
+
+  #textEncrypter {
+    font-size: var(--fontInputText);
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    outline: none;
+    height: calc(10vh + 400px);
+    margin: 1rem 0;
+    color: var(--blue-color);
+  }
+
+  .container-buttons {
+    margin: 1rem 0;
+    /* background-color: yellow; */
+  }
+  .container-buttons .message {
+    display: flex;
+    color: #495057;
+    margin: 0.5rem;
+    /* vertical-align: top; */
+  }
+  .message img {
+    display: inline-block;
+    width: 1rem;
+    height: auto;
+  }
+  .message p {
+    display: inline-block;
+  }
+
+  .buttons {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .button {
+    border-radius: 24px;
+    width: clamp(200px, 90%, 400px);
+    height: 67px;
+    cursor: pointer;
+  }
+
+  .encrypter {
+    background-color: var(--blue-color);
+    color: white;
+    border: none;
+  }
+  .desencrypter {
+    border: 1px solid var(--blue-color);
+    color: var(--blue-color);
+  }
+
+  /* SECOND SECTION */
+
+  .card-encrypter {
+    border-radius: 2rem;
+    background-color: white;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .message-img {
+    display: none;
+  }
+  .message-none {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: var(--estadoNone);
+  }
+  .message-none h2 {
+    line-height: 28.8px;
+    margin: 0.5rem 0;
+  }
+  .message-none p {
+    line-height: 24px;
+  }
+
+  .message-encrypter {
+    display: var(--estadoTexto);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  .message-encrypter .message-text {
+    height: calc(12vh + 400px);
+    width: 100%;
+  }
+  #text-solution {
+    font-size: var(--fontOutputText);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    display: inline-block;
+  }
+  .message-encrypter .copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: crimson; */
+  }
+  .copy button {
+    background-color: transparent;
+    border: 1px solid var(--blue-color);
+    color: var(--blue-color);
+  }
+  .copy:hover {
+    cursor: pointer;
+  }
+
+  footer {
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--blue-color);
+    font-weight: bold;
+  }
+}
+@media screen and (min-width: 768px) {
+  #textEncrypter {
+    height: calc(25vh + 400px);
+  }
+  .buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 1rem 1rem 0 1rem;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 120px repeat(5, 1fr);
+    grid-template-rows: 80px repeat(3, 1fr) 80px;
+    grid-template-areas:
+      "header s-text s-text s-text s-encrypter s-encrypter"
+      "header s-text s-text s-text s-encrypter s-encrypter"
+      "header s-text s-text s-text s-encrypter s-encrypter"
+      "header s-text s-text s-text s-encrypter s-encrypter"
+      "footer footer footer footer footer footer";
+  }
+  header {
+    grid-area: header;
+  }
+
+  .section-text {
+    width: 80%;
+    grid-area: s-text;
+    /* padding: 1rem 0; */
+  }
+  .body-text {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .container-text {
+    height: 75%;
+  }
+
+  #textEncrypter {
+    height: 100%;
+    padding: 0.5rem;
+    margin: 0;
+  }
+  .container-buttons {
+    margin: 0;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 1rem 0;
+    /* background-color: brown; */
+  }
+
+  .section-encrypter {
+    grid-area: s-encrypter;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+  }
+  .card-encrypter {
+    height: calc(125px + 75%);
+    width: clamp(200px, 85%, 400px);
+    padding: 1rem;
+  }
+
+  .message-img {
+    display: var(--estadoNone);
+  }
+  .message-encrypter .message-text {
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
+    padding: 0.5rem;
+  }
+
+  .message-encrypter .copy {
+    height: 125px;
+    display: flex;
+    align-items: end;
+    /* background-color: green; */
+  }
+
+  footer {
+    /* position: absolute; */
+    /* bottom: 0; */
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    grid-area: footer;
+    width: 100%;
+    text-align: center;
+    color: var(--blue-color);
+    height: clamp(4vh, 5vh, 6vh);
+  }
+}
